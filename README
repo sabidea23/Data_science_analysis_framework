@@ -1,0 +1,105 @@
+--DINU ANDREEA SABINA-322
+
+-- PP Project 
+
+--Taskset 1 (Introduction)
+
+-- Task 1
+I composed the table with the averages applying a foldr on the eight_hours table, 
+through which I changed the header and I computed the new rows of the table, 
+for each person I calculated the average of the hours, converted to float. 
+To convert the average to string type I used (printf "% .2f ").
+
+-- Task 2
+I created a list that contains the total number of steps of each person, and
+its elements are float (I used the read function to transform from string).
+I went through the list, and incremented the battery when the number of
+steps was greater than 1000.
+
+In order to get the percentage of people who have achieved their goal, I devided 
+the number of people who have at least 1000 steps by the total number of people, 
+cast at Float. 
+
+-- Task 3
+In order to go through the string matrix on columns, I computed the transposition 
+of the matrix, from which I removed the header. For each line, I computed the
+average, which represents he average number of steps for the x hour in the eight_hours table.
+
+-- Task 4
+In order to count the number of people for each range, I build a list with 3 lines,
+on each line is the number of people in each range of a category of activity.
+For each category, I calculated how many people were in each range.
+
+-- Task 5
+I sorted the received table using the sort_by function, which receives an Ordering from 
+the ascending_sort function. This compares the people by their total number of 
+steps (ascending). If two people have the same number of steps, they will be listed 
+in alphabetical name order.
+
+-- Task 6
+I obtained the desired table by applying foldr on the received table. 
+The operation that foldr receives adds to the battery a row consisting of: 
+name, the average of the first 4 hours, obtained from the sum of the first 4 
+elements of a list / 4, the average of the last 4 hours and the difference 
+between them. Finally, I sorted the table the same as in the previous task and 
+added the corresponding header
+
+-- Task 7
+The map (map f) function applies the f operation to each element in the table, 
+because map processes each line in the table, and map (map f) processes each 
+element in a line.
+
+-- Task 8
+I implemented the get_sleep_total function, which consists of a row of a 
+table consisting of an email and a total number of minutes of sleep and I 
+applied it on each row of the sleep_min table.
+
+
+--Taskset 2
+
+--Task 2.1
+I sorted the received table using the sort_by function, which receives an Ordering from 
+the ascending_sort' function. The sorting was done by the column with the name received 
+as a parameter. The comparison function sort in ascending order for columns with numeric
+values and lexicographical for strings. I converted the elements of the matrix to the 
+double type to make the comparisons correctly.
+
+--Task 2.2
+The function vunion checks for two tables if the name columns coincide. If the header rows are 
+identical than table2 is added at the end of table1, else table1 is returned. The comparison of 
+two rows is done element by element.
+
+--Task 2.3
+The function hunion checks if the first table is longer than the second table, 
+then a row with empty strings of equal length to the rows of the second table is 
+created and it is added at the end of the second table (length t1) - (length t2) 
+times, then the transpose of the lists are concatenated and the result is transposed
+Similar when the second table is longer. When they are equal, their transposes 
+are concatenated and the result is transposed.
+
+--Task 2.4
+The function implement table join with respect to a key (a column name).
+For the first row of the table, the header of table1 is concatenated to the header of
+table2, from which the name of the column received as a parameter is removed.
+Then, the merge_table function is applied to the items in tables 1 and 2 in the index 
+corresponding to the column name received as a parameter.
+For each row in the first table, checks if the element with index i1 from the row 
+is equal to an element with index i2 from any row of the table then their content is concatenated
+else, the row becomes empty. 
+Finally, the empty rows are removed from the table.
+
+--Task 2.5
+The function cartesian compute the cartesian product of 2 tables by applying  
+the given operation on each entry in t1 with each entry in t2. 
+To do this, I called the row_op function for each row, which applies the operation 
+to each element.
+
+--Task 2.6
+The function projection extract from a table those columns specified by name in the first argument.
+The extraction is done as follows: 
+For each column name, the corresponding column is searched in the transposition of the matrix and only 
+those with the index of the searched column are kept.
+
+--Task 2.7
+Filter rows based on a given condition applied to a specified column.
+The function number_column returns the index of the column which has a certain name.
